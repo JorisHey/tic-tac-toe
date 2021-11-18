@@ -1,0 +1,31 @@
+:root {
+  --squareSize: 100px;
+  --fontSize: calc(var(--squareSize) * 0.75);
+  --borderSize: 5px;
+}
+
+.boardRow:after {
+  clear: both;
+  content: '';
+  display: table;
+}
+
+.square {
+  background: #fff;
+  border: var(--borderSize) solid #999;
+  float: left;
+  font-size: var(--fontSize);
+  font-weight: bold;
+  line-height: var(--squareSize);
+  margin-right: calc(-1 * var(--borderSize));
+  margin-top: calc(-1 * var(--borderSize));
+  padding: 0;
+  text-align: center;
+  height: var(--squareSize);
+  width: var(--squareSize);
+}
+
+.square:focus {
+  outline: none;
+  background: #ddd;
+}
