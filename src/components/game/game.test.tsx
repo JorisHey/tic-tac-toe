@@ -147,7 +147,7 @@ test('checking the "restart" button', async () => {
   const squareButtons = await screen.findAllByRole('button', {
     name: 'square',
   });
-  const restartButton = screen.getByRole('button', { name: 'restart' });
+  const restartButton = screen.getByRole('button', { name: /restart/i });
   const status = screen.getByLabelText('status');
 
   for (const click of twoRandomClicks) {
