@@ -1,7 +1,7 @@
-import Board from './components/board';
+import { Game } from './components/game';
 
 function App(): JSX.Element {
-  return <Board />;
+  return <Game />;
 }
 
 export default App;

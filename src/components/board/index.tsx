@@ -1,10 +1,15 @@
+import { Square } from '../../types/square';
 import style from './board.module.css';
 
-export default function Board(): JSX.Element {
+type ChildProps = {
+  squares: (Square | null)[];
+};
+
+export default function Board({ squares }: ChildProps): JSX.Element {
   function renderSquare(i: number) {
     return (
       <button type="button" className={`${style.square}`}>
-        {i % 2 === 0 ? 'X' : 'O'}
+        {squares[i]}
       </button>
     );
   }
