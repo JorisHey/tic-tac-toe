@@ -3,12 +3,21 @@ import style from './board.module.css';
 
 type ChildProps = {
   squares: (Square | null)[];
+  selectedSquare: (square: number) => void;
 };
 
-export default function Board({ squares }: ChildProps): JSX.Element {
+export default function Board({
+  squares,
+  selectedSquare,
+}: ChildProps): JSX.Element {
   function renderSquare(i: number) {
     return (
-      <button type="button" className={`${style.square}`}>
+      <button
+        type="button"
+        aria-label="square"
+        onClick={() => selectedSquare(i)}
+        className={`${style.square}`}
+      >
         {squares[i]}
       </button>
     );
