@@ -6,6 +6,7 @@ import {
   calculateWinner,
 } from './game.helpers';
 import { Square } from '../../types/square';
+import style from './game.module.css';
 
 export default function Game(): JSX.Element {
   const [squares, setSquares] = useState<(Square | null)[]>(
@@ -33,12 +34,28 @@ export default function Game(): JSX.Element {
   }
 
   return (
-    <>
-      <Board squares={squares} selectedSquare={selectedSquare} />
-      <button type="button" onClick={restart}>
-        restart
+    <div className={`${style.game}`}>
+      <div className={`${style.container}`}>
+        <Board squares={squares} selectedSquare={selectedSquare} />
+        <div
+          aria-label="status"
+          className={
+            status.substring(status.length - 1) === 'X'
+              ? `${style.status} ${style.statusX}`
+              : `${style.status} ${style.statusO}`
+          }
+        >
+          {status}
+        </div>
+      </div>
+      <button
+        type="button"
+        onClick={restart}
+        className={`${style.btnRestart}`}
+        disabled={squares.filter(Boolean).length === 0}
+      >
+        RESTART
       </button>
-      <div aria-label="status">{status}</div>
-    </>
+    </div>
   );
 }

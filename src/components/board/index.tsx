@@ -16,7 +16,11 @@ export default function Board({
         type="button"
         aria-label="square"
         onClick={() => selectedSquare(i)}
-        className={`${style.square}`}
+        className={
+          squares[i] === 'X'
+            ? `${style.square} ${style.squareX}`
+            : `${style.square} ${style.squareO}`
+        }
       >
         {squares[i]}
       </button>

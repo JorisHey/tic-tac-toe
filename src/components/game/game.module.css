@@ -1,0 +1,54 @@
+.game {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+}
+
+.btnRestart {
+  background-color: #06f;
+  border: 2px solid #06f;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 16px;
+  font-weight: 600;
+  height: 48px;
+  justify-content: center;
+  align-items: center;
+}
+
+.btnRestart:focus {
+  color: #171e29;
+}
+
+.btnRestart:disabled {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+}
+
+.status {
+  font-size: 25px;
+  font-weight: 600;
+  margin-left: 20px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.statusX {
+  color: #ea3f3f;
+}
+
+.statusO {
+  color: #0087f4;
+}

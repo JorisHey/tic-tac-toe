@@ -1,3 +1,14 @@
+# Tic Tac Toe
+
+![Alt text](./public/ticTacToe.png?raw=true 'Tic Tac Toe')
+
+## Short description
+
+- **Framework:** React
+- **Language:** TypeScript
+- **Style:** CSS Module Stylsheet
+- **Testing**: Jest
+
 ## Available Scripts
 
 In the project directory, you can run:

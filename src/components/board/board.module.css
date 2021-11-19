@@ -12,7 +12,7 @@
 
 .square {
   background: #fff;
-  border: var(--borderSize) solid #999;
+  border: var(--borderSize) solid #629bcd;
   float: left;
   font-size: var(--fontSize);
   font-weight: bold;
@@ -28,4 +28,12 @@
 .square:hover {
   outline: none;
   background: #ddd;
+}
+
+.squareX {
+  color: #ea3f3f;
+}
+
+.squareO {
+  color: #0087f4;
 }

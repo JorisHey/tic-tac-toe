@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 
 import Board from '.';
 
-test('display correct numbers of squares', async () => {
+test('display correct number of squares', async () => {
   const notImportantHere = () => null;
 
   render(<Board selectedSquare={notImportantHere} squares={[]} />);
