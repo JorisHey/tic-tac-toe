@@ -75,8 +75,8 @@ test('checking the winner for "X"', async () => {
   let clicked: number[] = [];
   let oClickIndex: number;
 
-  const doNotClick = (forbiddenIndexes: number[]) =>
-    [0, 1, 2, 3, 4, 5, 6, 7, 8].filter((i) => !forbiddenIndexes.includes(i));
+  const saveToClickOn = (forbiddenIndexes: number[]) =>
+    [0, 1, 2, 3, 4, 5, 6, 7, 8].filter((i) => !forbiddenIndexes.includes(i))[0];
 
   for (const winner of winners) {
     userEvent.click(screen.getByRole('button', { name: /restart/i }));
@@ -84,7 +84,7 @@ test('checking the winner for "X"', async () => {
 
     for (let i = 0; i < winner.length; i += 1) {
       userEvent.click(squareButtons[winner[i]]);
-      [oClickIndex] = doNotClick([...winner, ...clicked]);
+      oClickIndex = saveToClickOn([...winner, ...clicked]);
       clicked.push(oClickIndex);
       userEvent.click(squareButtons[oClickIndex]);
     }
@@ -110,17 +110,19 @@ test('checking the winner for "O"', async () => {
   });
   const status = screen.getByLabelText('status');
   let clicked: number[] = [];
-  let oClickIndex: number;
+  let xClickIndex: number;
 
-  const doNotClick = (forbiddenIndexes: number[]) =>
-    [0, 1, 2, 3, 4, 5, 6, 7, 8].filter((i) => !forbiddenIndexes.includes(i));
+  const saveToClickOn = (forbiddenIndexes: number[]) =>
+    [0, 1, 2, 3, 4, 5, 6, 7, 8].filter((i) => !forbiddenIndexes.includes(i))[0];
 
   for (const winner of winners) {
     userEvent.click(screen.getByRole('button', { name: /restart/i }));
     clicked = [];
+
     for (let i = 0; i < winner.length; i += 1) {
-      [oClickIndex] = doNotClick([...winner, ...clicked]);
-      clicked.push(oClickIndex);
+      xClickIndex = saveToClickOn([...winner, ...clicked]);
+
+      clicked.push(xClickIndex);
 
       // * "X" begins, so prevent "X" to be the winner
       if (
@@ -130,9 +132,9 @@ test('checking the winner for "O"', async () => {
             r.every((value, index) => clicked[index] === value)
         )
       ) {
-        userEvent.click(squareButtons[oClickIndex + 1]);
+        userEvent.click(squareButtons[saveToClickOn([...winner, ...clicked])]);
       } else {
-        userEvent.click(squareButtons[oClickIndex]);
+        userEvent.click(squareButtons[xClickIndex]);
       }
       userEvent.click(squareButtons[winner[i]]);
     }
