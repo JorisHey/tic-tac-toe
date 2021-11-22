@@ -9,6 +9,8 @@
 - **Style:** CSS Module Stylsheet
 - **Testing**: Jest
 
+_**Note (22/11/2021):** I found an important bug while "testing the winners". I was able to fix for 'X'. Test for 'O' isn't working correctly. Unfortunately I cannot fix before afternoon (because of a training in the morning)_
+
 ## Available Scripts
 
 In the project directory, you can run:

@@ -79,7 +79,9 @@ test('checking the winner for "X"', async () => {
     [0, 1, 2, 3, 4, 5, 6, 7, 8].filter((i) => !forbiddenIndexes.includes(i));
 
   for (const winner of winners) {
+    userEvent.click(screen.getByRole('button', { name: /restart/i }));
     clicked = [];
+
     for (let i = 0; i < winner.length; i += 1) {
       userEvent.click(squareButtons[winner[i]]);
       [oClickIndex] = doNotClick([...winner, ...clicked]);
@@ -114,6 +116,7 @@ test('checking the winner for "O"', async () => {
     [0, 1, 2, 3, 4, 5, 6, 7, 8].filter((i) => !forbiddenIndexes.includes(i));
 
   for (const winner of winners) {
+    userEvent.click(screen.getByRole('button', { name: /restart/i }));
     clicked = [];
     for (let i = 0; i < winner.length; i += 1) {
       [oClickIndex] = doNotClick([...winner, ...clicked]);
